@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1729688525.76848 "c:/Users/User/Documents/GitHub/Silhouette_clustering/LaTeX_folder/main.tex" "main.pdf" "main" 1729688527.37572 0
+["pdflatex"] 1729688832.74923 "c:/Users/User/Documents/GitHub/Silhouette_clustering/LaTeX_folder/main.tex" "main.pdf" "main" 1729688834.57694 0
   "C:/Users/User/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1729688517 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/User/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1729688524 11548 48d0316197a5b64ca72cb968feb80133 ""
   "C:/Users/User/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1729688404 24224575 6d1405bd761f660365f4f4eafbd80708 ""
@@ -90,11 +90,11 @@
   "C:/Users/User/AppData/Local/Programs/MiKTeX/tex/latex/refcount/refcount.sty" 1576433952 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "C:/Users/User/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1657800696 9714 ba3194bd52c8499b3f1e3eb91d409670 ""
   "C:/Users/User/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "c:/Users/User/Documents/GitHub/Silhouette_clustering/LaTeX_folder/main.tex" 1729686196 7132 fc680627132167220ec09f927783b321 ""
+  "c:/Users/User/Documents/GitHub/Silhouette_clustering/LaTeX_folder/main.tex" 1729688831 7041 281d6c351101fec21731591a52bbead9 ""
   "ex2.png" 1729679070 9991 f2c540664aeb2b947b4ad985ae43f975 ""
-  "main.aux" 1729688527 1413 3be4a24006f891f32af7e1d43752d6c7 "pdflatex"
-  "main.out" 1729688527 2973 67227fd24a3375318313d9f7ef11dce9 "pdflatex"
-  "main.tex" 1729686196 7132 fc680627132167220ec09f927783b321 ""
+  "main.aux" 1729688834 1413 3be4a24006f891f32af7e1d43752d6c7 "pdflatex"
+  "main.out" 1729688834 2973 67227fd24a3375318313d9f7ef11dce9 "pdflatex"
+  "main.tex" 1729688831 7041 281d6c351101fec21731591a52bbead9 ""
   "plot2.png" 1729685798 22139 1663738159bc15d5162a2889caaa87d8 ""
   "triangleex.png" 1729679070 11206 331dbec8693a9f1921398058c126f1bd ""
   "trianglesil.png" 1729679070 16265 9e380dd910c9f9b1382eccc0ba2ac0f5 ""

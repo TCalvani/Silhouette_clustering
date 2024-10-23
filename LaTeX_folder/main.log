@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.23)  23 OCT 2024 15:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.23)  23 OCT 2024 15:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -264,24 +264,24 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -342,7 +342,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
  (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx))
-Package hyperref Info: Link coloring ON on input line 18.
+Package hyperref Info: Link coloring ON on input line 16.
  (main.out) (main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
@@ -350,27 +350,27 @@ Package hyperref Info: Link coloring ON on input line 18.
 <triangleex.png, id=21, 185.9748pt x 141.1674pt>
 File: triangleex.png Graphic file (type png)
 <use triangleex.png>
-Package pdftex.def Info: triangleex.png  used on input line 43.
+Package pdftex.def Info: triangleex.png  used on input line 41.
 (pdftex.def)             Requested size: 192.0548pt x 145.7853pt.
 <trianglesil.png, id=23, 185.493pt x 140.6856pt>
 File: trianglesil.png Graphic file (type png)
 <use trianglesil.png>
-Package pdftex.def Info: trianglesil.png  used on input line 49.
+Package pdftex.def Info: trianglesil.png  used on input line 47.
 (pdftex.def)             Requested size: 192.0548pt x 145.6677pt.
 <ex2.png, id=26, 185.9748pt x 142.131pt>
 File: ex2.png Graphic file (type png)
 <use ex2.png>
-Package pdftex.def Info: ex2.png  used on input line 62.
+Package pdftex.def Info: ex2.png  used on input line 60.
 (pdftex.def)             Requested size: 192.0548pt x 146.78041pt.
 <plot2.png, id=27, 416.2752pt x 312.2064pt>
 File: plot2.png Graphic file (type png)
 <use plot2.png>
-Package pdftex.def Info: plot2.png  used on input line 68.
+Package pdftex.def Info: plot2.png  used on input line 66.
 (pdftex.def)             Requested size: 192.0548pt x 144.04066pt.
  [1
 
 {C:/Users/User/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./triangleex.png> <./trianglesil.png> <./ex2.png> <./plot2.png>]
-Overfull \hbox (13.5114pt too wide) in paragraph at lines 78--78
+Overfull \hbox (13.5114pt too wide) in paragraph at lines 76--76
 []\OT1/cmr/bx/n/12 OSil/FOSil al-go-rithms (Clus-ter-ing with the Av-er-age Sil-hou-ette Width,
  []
 
