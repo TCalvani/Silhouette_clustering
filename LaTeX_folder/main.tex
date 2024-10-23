@@ -14,7 +14,7 @@
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
 \title{Notes on silhouette-based clustering}
-%\author{You}
+\author{Calvani Tommaso}
 \begin{document}
 \maketitle
 
@@ -22,97 +22,112 @@
 %Your abstract.
 %\end{abstract}
 
-\section{Introduction}
-
-Your introduction goes here! Simply start writing your document and use the Recompile button to view the updated PDF preview. Examples of commonly used commands and features are listed below, to help you get started.
-
-Once you're familiar with the editor, you can find various project settings in the Overleaf menu, accessed via the button in the very top left of the editor. To view tutorials, user guides, and further documentation, please visit our \href{https://www.overleaf.com/learn}{help library}, or head to our plans page to \href{https://www.overleaf.com/user/subscription/plans}{choose your plan}.
-
-\section{Some examples to get started}
-
-\subsection{How to create Sections and Subsections}
-
-Simply use the section and subsection commands, as in this example document! With Overleaf, all the formatting and numbering is handled automatically according to the template you've chosen. If you're using the Visual Editor, you can also create new section and subsections via the buttons in the editor toolbar.
-
-\subsection{How to include Figures}
-
-First you have to upload the image file from your computer using the upload link in the file-tree menu. Then use the includegraphics command to include it in your document. Use the figure environment and the caption command to add a number and a caption to your figure. See the code for Figure \ref{fig:frog} in this section for an example.
-
-Note that your figure will automatically be placed in the most appropriate place for it, given the surrounding text and taking into account other figures or tables that may be close by. You can find out more about adding images to your documents in this help article on \href{https://www.overleaf.com/learn/how-to/Including_images_on_Overleaf}{including images on Overleaf}.
-
-\begin{figure}
-\centering
-\includegraphics[width=0.25\linewidth]{frog.jpg}
-\caption{\label{fig:frog}This frog was uploaded via the file-tree menu.}
-\end{figure}
-
-\subsection{How to add Tables}
-
-Use the table and tabular environments for basic tables --- see Table~\ref{tab:widgets}, for example. For more information, please see this help article on \href{https://www.overleaf.com/learn/latex/tables}{tables}. 
-
-\begin{table}
-\centering
-\begin{tabular}{l|r}
-Item & Quantity \\\hline
-Widgets & 42 \\
-Gadgets & 13
-\end{tabular}
-\caption{\label{tab:widgets}An example table.}
-\end{table}
-
-\subsection{How to add Comments and Track Changes}
-
-Comments can be added to your project by highlighting some text and clicking ``Add comment'' in the top right of the editor pane. To view existing comments, click on the Review menu in the toolbar above. To reply to a comment, click on the Reply button in the lower right corner of the comment. You can close the Review pane by clicking its name on the toolbar when you're done reviewing for the time being.
-
-Track changes are available on all our \href{https://www.overleaf.com/user/subscription/plans}{premium plans}, and can be toggled on or off using the option at the top of the Review pane. Track changes allow you to keep track of every change made to the document, along with the person making the change. 
-
-\subsection{How to add Lists}
-
-You can make lists with automatic numbering \dots
+\section*{Questions from first meeting}
 
 \begin{enumerate}
-\item Like this,
-\item and like this.
+\item Is Silhouette score monotone with respect to the number of clusters? Is it unimodal? Is there any literature regarding Silhouette properties?
+\item Can Silhouette score be negative in an optimal clustering?
+\item Are silhouette-optimal clusters always separable by a hyperplane?
 \end{enumerate}
-\dots or bullet points \dots
+
+\section{Mathematical properties of the optimal score with respect to the number of clusters k (Answer to question 1):}
+
+\subsection*{Monotonicity}
+
+There is no literature regarding these properties, it is however immediate to prove that it is not monotone by computing the optimal silhouette score for the 6 points example on \ref{fig:1} and \ref{fig:2}.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{triangleex.png}
+        \label{fig:1}
+    \end{minipage}
+    \hfill  % Adds some horizontal space between the figures
+    \begin{minipage}{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{trianglesil.png}
+        \label{fig:2}
+    \end{minipage}
+\end{figure}
+
+\subsection*{Unimodality}
+
+Intuitively the score is also not unimodal, counterexample is shown in \ref{fig:3} and \ref{fig:4}.
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{ex2.png}
+        \label{fig:3}
+    \end{minipage}
+    \hfill  % Adds some horizontal space between the figures
+    \begin{minipage}{0.45\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{plot2.png}
+        \label{fig:4}
+    \end{minipage}
+\end{figure}
+
+
+\section*{Other approaches to silhouette-based clustering in literature:}
+
+Most of the approaches found in literature start from an initial clustering (that could be the result of another algorithm such as k-means) and try to refine this result locally searching for an improvement in the silhouette score. Issues with the complexity of computing this score at each attempt are tackled by using simplified versions of the score (MEDSIL, simplified silhouette) or by working on a subset of the dataset.
+
+\subsection{\textbf{OSil/FOSil} algorithms (Clustering with the Average Silhouette Width, Fatima Batool, Christian Hennig, 2021)}
+
+Starting from an initial clustering, at each iteration reassigns points that give the highest improvement for the average silhouette score. In the other alternative (FOSil), only reallocates a random sample of the dataset and then assigns the rest of the points in order to maximize their individual silhouette score.
+Experimental results show that OSil and FOSil return better results than k-means only on some specific synthetic datasets, while not achieving any improvement in most cases (also on real datasets).
+
+\subsection{\textbf{FSMC} algorithm (Medoid Silhouette clustering with automatic cluster number selection, Lars Lenssen , Erich Schubert, 2024)}
+
+Improvement of the PAMMEDSIL algorithm, where to simplify the computation of the silhouette score only the distance to a cluster’s medoid is used instead of the average distance with all the point.
+In the paper it is assumed that individual silhouette scores are always non-negative in order to furtherly simplify the silhouette score formula.
+The core of the algorithm is still iteratively swapping medoids and normal points searching for an improvement in the average silhouette score.
+In particular, in order to reduce the computational costs, the first swap returning an improvement is chosen (“First descent”) instead of the one achieving the largest improvement (“Steepest descent”).
+Moreover, the algorihtm start from a maximum number of clusters (kmax) and after each iteration removes the medoid with the lowest contribution to the average silhouette score, resulting in an automatic selection of the number of clusters.
+Results show that the algorithm achieves results comparable to PAMSIL with a lower runtime.
+
+
+\subsection{\textbf{REMOS1 / REMOS2} algorithms (Comparison of silhouette-based reallocation methods for vegetation classification, Attila Lengyel, David W. Roberts, Zoltán Botta-Dukát, 2020)}
+
+The paper compares the existing OPTSIL approach (Roberts, 2015) which searches for the allocations that most increase the average silhouette score of an initial clustering with a new approach that aims to maximize the individual silhouette scores. In particular, at each iteration REMOS1 reallocates to the second closest cluster a fixed number of points with the lowest individual silhouette score, while REMOS2 reallocates all the points with a negative individual score.
+The idea is that a negative individual silhouette score implies a misclassification of the point.
+The two algorithms are compared on real datasets containing vegetation samples and then evaluated with respect to the average silhouette score achieved and the misclassification rate.
+OPTSIL achieved a generally higher average silhouette score compared to REMOS1 and REMOS2, however these two algorithms returned a misclassification rate mostly equal to zero which OPTSIL couldn’t achieve. 
+
+\section*{Observations and questions}
+
 \begin{itemize}
-\item Like this,
-\item and like this.
+\item In every approach I could see, results never achieve a significant improvement compared to k-means. In general, k-means’ results seem to be a good approximation of the optimal silhouette score (however there are no guarantees about this).
+\item \textbf{Question}: when does the silhouette function behaves differently from k-means cost function?
+\item As shown in the vegetation classification paper, in some contexts optimizing the average silhouette score doesn’t seem to return the most desireable result, while maximizing the individual scores could be better even if achieving a lower average score.
+\item \textbf{Question}: can the optimal average silhouette score be negative? Can the individual scores be negative in an optimal clustering? Does a negative individual score necessarily imply a misclassification? 
 \end{itemize}
 
-\subsection{How to write Mathematics}
+\section*{Definitions}
 
-\LaTeX{} is great at typesetting mathematics. Let $X_1, X_2, \ldots, X_n$ be a sequence of independent and identically distributed random variables with $\text{E}[X_i] = \mu$ and $\text{Var}[X_i] = \sigma^2 < \infty$, and let
-\[S_n = \frac{X_1 + X_2 + \cdots + X_n}{n}
-      = \frac{1}{n}\sum_{i}^{n} X_i\]
-denote their mean. Then as $n$ approaches infinity, the random variables $\sqrt{n}(S_n - \mu)$ converge in distribution to a normal $\mathcal{N}(0, \sigma^2)$.
+\subsection*{Individual Silhouette Score for Point \( i \):}
 
+The silhouette score \( s_i \) for an individual point \( i \) is defined as:
+\[
+s_i = \frac{b_i - a_i}{\max\{a_i, b_i\}}
+\]
+where:
+\[
+a_i = \frac{1}{|C_i| - 1} \sum_{\substack{j \in C_i \\ j \neq i}} d(j, i)
+\]
+and
+\[
+b_i = \min_{\substack{C_j \neq C_i}} d(i, C_j)
+\]
 
-\subsection{How to change the margins and paper size}
+\subsection*{Average Silhouette Score for the Dataset \( D \):}
 
-Usually the template you're using will have the page margins and paper size set correctly for that use-case. For example, if you're using a journal article template provided by the journal publisher, that template will be formatted according to their requirements. In these cases, it's best not to alter the margins directly.
-
-If however you're using a more general template, such as this one, and would like to alter the margins, a common way to do so is via the geometry package. You can find the geometry package loaded in the preamble at the top of this example file, and if you'd like to learn more about how to adjust the settings, please visit this help article on \href{https://www.overleaf.com/learn/latex/page_size_and_margins}{page size and margins}.
-
-\subsection{How to change the document language and spell check settings}
-
-Overleaf supports many different languages, including multiple different languages within one document. 
-
-To configure the document language, simply edit the option provided to the babel package in the preamble at the top of this example project. To learn more about the different options, please visit this help article on \href{https://www.overleaf.com/learn/latex/International_language_support}{international language support}.
-
-To change the spell check language, simply open the Overleaf menu at the top left of the editor window, scroll down to the spell check setting, and adjust accordingly.
-
-\subsection{How to add Citations and a References List}
-
-You can simply upload a \verb|.bib| file containing your BibTeX entries, created with a tool such as JabRef. You can then cite entries from it, like this: \cite{greenwade93}. Just remember to specify a bibliography style, as well as the filename of the \verb|.bib|. You can find a \href{https://www.overleaf.com/help/97-how-to-include-a-bibliography-using-bibtex}{video tutorial here} to learn more about BibTeX.
-
-If you have an \href{https://www.overleaf.com/user/subscription/plans}{upgraded account}, you can also import your Mendeley or Zotero library directly as a \verb|.bib| file, via the upload menu in the file-tree.
-
-\subsection{Good luck!}
-
-We hope you find Overleaf useful, and do take a look at our \href{https://www.overleaf.com/learn}{help library} for more tutorials and user guides! Please also let us know if you have any feedback using the Contact Us link at the bottom of the Overleaf menu --- or use the contact form at \url{https://www.overleaf.com/contact}.
-
-\bibliographystyle{alpha}
-\bibliography{sample}
+The average silhouette score \( S \) for the entire dataset \( D \) is defined as:
+\[
+S = \frac{1}{n} \sum_{i \in D} s_i
+\]
 
 \end{document}
